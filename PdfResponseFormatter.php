@@ -5,7 +5,7 @@
  * @created 15/05/14 12:35 PM
  */
 
-namespace app\components;
+namespace robregonm\pdf;
 
 use Yii;
 use yii\base\Component;
