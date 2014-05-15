@@ -1,9 +1,9 @@
 Yii2-PDF
 ========
 
-PDF formatter for Yii2 using mPDF library
+PDF formatter for Yii2 using mPDF library.
 
-This extension "format" HTML responses to PDF files (by default Yii2 includes HTML, JSON and XML formatters). Great for reporting in PDF format using HTML views/layouts.
+This extension "format" HTML responses to PDF files (by default Yii2 includes HTML, JSON and XML formatters). Great for reports in PDF format using HTML views/layouts.
 
 ##Installation
 
