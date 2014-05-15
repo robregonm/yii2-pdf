@@ -5,7 +5,7 @@ PDF formatter for Yii2 using mPDF library
 
 This extension "format" HTML responses to PDF files (by default Yii2 includes HTML, JSON and XML formatters). Great for reporting in PDF format using HTML views/layouts.
 
-##Instalation
+##Installation
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
