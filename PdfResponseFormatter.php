@@ -13,11 +13,11 @@ use yii\web\Response;
 use yii\web\ResponseFormatterInterface;
 
 /**
- * JsonResponseFormatter formats the given data into a JSON or JSONP response content.
+ * PdfResponseFormatter formats the given HTML data into a PDF response content.
  *
  * It is used by [[Response]] to format response data.
  *
- * @author Qiang Xue <qiang.xue@gmail.com>
+ * @author Ricardo Obregón <robregonm@gmail.com>
  * @since 2.0
  */
 class PdfResponseFormatter extends Component implements ResponseFormatterInterface
