@@ -67,3 +67,5 @@ Yii2-Pdf is released under the BSD-3 License. See the bundled `LICENSE.md` for d
 * [mPDF Manual](http://mpdf1.com/manual/index.php)
 
 Enjoy!
+
+[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=robregonm&url=https://github.com/robregonm/yii2-pdf&title=Yii2-PDF&language=&tags=github&category=software) 
