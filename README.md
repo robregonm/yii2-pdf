@@ -35,6 +35,7 @@ return [
 			'formatters' => [
 				'pdf' => [
 					'class' => 'robregonm\pdf\PdfResponseFormatter',
+					'rotated' => false,
 				],
 			]
 		],
@@ -50,6 +51,10 @@ In the controller:
 class MyController extends Controller {
 	public function actionPdf(){
 		Yii::$app->response->format = 'pdf';
+		
+		//Can you it if needed to rotate the page
+		Yii::$container->set(Yii::$app->response->formatters['pdf']['class'], ['rotated' => true]);
+		
 		$this->layout = '//print';
 		return $this->render('myview', []);
 	}

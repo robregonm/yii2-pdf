@@ -22,29 +22,35 @@ use yii\web\ResponseFormatterInterface;
  */
 class PdfResponseFormatter extends Component implements ResponseFormatterInterface
 {
+    /**
+     * @var boolean whether to interpret Page as Landscape.
+     * Default false that means as Portrait.
+     */
+    public $rotated = false;
 
+    /**
+     * Formats the specified response.
+     *
+     * @param Response $response the response to be formatted.
+     */
+    public function format($response)
+    {
+        $response->getHeaders()->set('Content-Type', 'application/pdf');
+        $response->content = $this->formatPdf($response);
+    }
 
-
-	/**
-	 * Formats the specified response.
-	 *
-	 * @param Response $response the response to be formatted.
-	 */
-	public function format($response)
-	{
-		$response->getHeaders()->set('Content-Type', 'application/pdf');
-		$response->content = $this->formatPdf($response);
-	}
-
-	/**
-	 * Formats response HTML in PDF
-	 *
-	 * @param Response $response
-	 */
-	protected function formatPdf($response)
-	{
-		$mpdf = new \mPDF();
-		$mpdf->WriteHTML($response->data);
-		return $mpdf->Output('', 'S');
-	}
+    /**
+     * Formats response HTML in PDF
+     *
+     * @param Response $response
+     */
+    protected function formatPdf($response)
+    {
+        $mpdf = new \mPDF();
+        if ($this->rotated) {
+            $mpdf->AddPage('L');
+        }
+        $mpdf->WriteHTML($response->data);
+        return $mpdf->Output('', 'S');
+    }
 }
