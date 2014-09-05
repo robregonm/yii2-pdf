@@ -35,19 +35,22 @@ return [
 			'formatters' => [
 				'pdf' => [
 					'class' => 'robregonm\pdf\PdfResponseFormatter',
-					'mode' => '',
-					'format' => 'A4',
-					'defaultFontSize' => 0,
-					'defaultFont' => '',
-					'marginLeft' => 15,
-					'marginRight' => 15,
-					'marginTop' => 16,
-					'marginBottom' => 16,
-					'marginHeader' => 9,
-					'marginFooter' => 9,
-					'orientation' => 'Landscape',
+					'mode' => '', // Optional
+					'format' => 'A4',  // Optional but recommended. http://mpdf1.com/manual/index.php?tid=184
+					'defaultFontSize' => 0, // Optional
+					'defaultFont' => '', // Optional
+					'marginLeft' => 15, // Optional
+					'marginRight' => 15, // Optional
+					'marginTop' => 16, // Optional
+					'marginBottom' => 16, // Optional
+					'marginHeader' => 9, // Optional
+					'marginFooter' => 9, // Optional
+					'orientation' => 'Landscape', // optional. Skipped when format includes "-L" suffix
 					'options' => [
 						// mPDF Variables
+						'fontdata' => [
+							// ... some fonts. http://mpdf1.com/manual/index.php?tid=454
+						]
 					]
 				],
 			]
@@ -67,7 +70,7 @@ class MyController extends Controller {
 		
 		//Can you it if needed to rotate the page
 		Yii::$container->set(Yii::$app->response->formatters['pdf']['class'], [
-			'orientation' => 'Landscape',
+			'orientation' => 'Landscape', // Only valid if "format" has NOT set "-L" or "-P" suffix
 			'beforeRender' => function($mpdf, $data) {},
 			]);
 		
