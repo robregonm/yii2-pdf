@@ -35,7 +35,20 @@ return [
 			'formatters' => [
 				'pdf' => [
 					'class' => 'robregonm\pdf\PdfResponseFormatter',
-					'rotated' => false,
+					'mode' => '',
+					'format' => 'A4',
+					'defaultFontSize' => 0,
+					'defaultFont' => '',
+					'marginLeft' => 15,
+					'marginRight' => 15,
+					'marginTop' => 16,
+					'marginBottom' => 16,
+					'marginHeader' => 9,
+					'marginFooter' => 9,
+					'orientation' => 'Landscape',
+					'options' => [
+						// mPDF Variables
+					]
 				],
 			]
 		],
@@ -53,7 +66,10 @@ class MyController extends Controller {
 		Yii::$app->response->format = 'pdf';
 		
 		//Can you it if needed to rotate the page
-		Yii::$container->set(Yii::$app->response->formatters['pdf']['class'], ['rotated' => true]);
+		Yii::$container->set(Yii::$app->response->formatters['pdf']['class'], [
+			'orientation' => 'Landscape',
+			'beforeRender' => function($mpdf, $data) {},
+			]);
 		
 		$this->layout = '//print';
 		return $this->render('myview', []);
