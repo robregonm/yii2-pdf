@@ -45,7 +45,7 @@ return [
 					'marginBottom' => 16, // Optional
 					'marginHeader' => 9, // Optional
 					'marginFooter' => 9, // Optional
-					'orientation' => 'Landscape', // optional. Skipped when format includes "-L" suffix
+					'orientation' => 'Landscape', // optional. This value will be ignored if format is a string value.
 					'options' => [
 						// mPDF Variables
 						'fontdata' => [
@@ -70,7 +70,7 @@ class MyController extends Controller {
 		
 		//Can you it if needed to rotate the page
 		Yii::$container->set(Yii::$app->response->formatters['pdf']['class'], [
-			'orientation' => 'Landscape', // Only valid if "format" has NOT set "-L" or "-P" suffix
+			'orientation' => 'Landscape', // This value will be ignored if format is a string value.
 			'beforeRender' => function($mpdf, $data) {},
 			]);
 		
