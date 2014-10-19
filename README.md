@@ -18,7 +18,7 @@ $ php composer.phar require robregonm/yii2-pdf "dev-master"
 or add
 
 ```
-"robregonm/yii2-pdf": "dev-master"
+"robregonm/yii2-pdf": "*"
 ```
 
 to the require section of your `composer.json` file.
