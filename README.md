@@ -12,7 +12,7 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-$ php composer.phar require robregonm/yii2-pdf "dev-master"
+$ php composer.phar require robregonm/yii2-pdf "*"
 ```
 
 or add
