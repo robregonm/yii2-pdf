@@ -90,7 +90,7 @@ class PdfResponseFormatter extends Component implements ResponseFormatterInterfa
 			$mpdf->$key = $option;
 		}
 
-		if ($this->beforeRender instanceof Closure) {
+		if ($this->beforeRender instanceof \Closure) {
 			call_user_func($this->beforeRender, $mpdf, $response->data);
 		}
 
