@@ -48,9 +48,9 @@ return [
 					'orientation' => 'Landscape', // optional. This value will be ignored if format is a string value.
 					'options' => [
 						// mPDF Variables
-						'fontdata' => [
+						// 'fontdata' => [
 							// ... some fonts. http://mpdf1.com/manual/index.php?tid=454
-						]
+						// ]
 					]
 				],
 			]
