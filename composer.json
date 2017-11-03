@@ -19,10 +19,10 @@
 		}
 	],
 	"require": {
-		"php": ">=5.4.0 <7.0.0",
+		"php": ">=5.4.0",
 		"yiisoft/yii2": "*",
 		"yiisoft/yii2-composer": "*",
-		"mpdf/mpdf": ">=5.7.0"
+		"mpdf/mpdf": ">=5.7.0 <7.0.0"
 	},
 	"autoload": {
 		"psr-4": {
