@@ -22,79 +22,81 @@ use yii\web\ResponseFormatterInterface;
  */
 class PdfResponseFormatter extends Component implements ResponseFormatterInterface
 {
-	public $mode = '';
+    public $mode = '';
 
-	public $format = 'A4';
+    public $format = 'A4';
 
-	public $defaultFontSize = 0;
+    public $defaultFontSize = 0;
 
-	public $defaultFont = '';
+    public $defaultFont = '';
 
-	public $marginLeft = 15;
+    public $marginLeft = 15;
 
-	public $marginRight = 15;
+    public $marginRight = 15;
 
-	public $marginTop = 16;
+    public $marginTop = 16;
 
-	public $marginBottom = 16;
+    public $marginBottom = 16;
 
-	public $marginHeader = 9;
+    public $marginHeader = 9;
 
-	public $marginFooter = 9;
+    public $marginFooter = 9;
 
-	/**
-	 * @var string 'Landscape' or 'Portrait'
-	 * Default to 'Portrait'
-	 */
-	public $orientation = 'P';
+    /**
+     * @var string 'Landscape' or 'Portrait'
+     * Default to 'Portrait'
+     */
+    public $orientation = 'P';
 
-	public $options = [];
+    public $options = [];
 
-	/**
-	 * @var Closure function($mpdf, $data){}
-	 */
-	public $beforeRender;
+    /**
+     * @var Closure function($mpdf, $data){}
+     */
+    public $beforeRender;
 
-	/**
-	 * Formats the specified response.
-	 *
-	 * @param Response $response the response to be formatted.
-	 */
-	public function format($response)
-	{
-		$response->getHeaders()->set('Content-Type', 'application/pdf');
-		$response->content = $this->formatPdf($response);
-	}
+    /**
+     * Formats the specified response.
+     *
+     * @param Response $response the response to be formatted.
+     */
+    public function format($response)
+    {
+        $response->getHeaders()->set('Content-Type', 'application/pdf');
+        $response->content = $this->formatPdf($response);
+    }
 
-	/**
-	 * Formats response HTML in PDF
-	 *
-	 * @param Response $response
-	 */
-	protected function formatPdf($response)
-	{
-		$mpdf = new \mPDF($this->mode,
-			$this->format,
-			$this->defaultFontSize,
-			$this->defaultFont,
-			$this->marginLeft,
-			$this->marginRight,
-			$this->marginTop,
-			$this->marginBottom,
-			$this->marginHeader,
-			$this->marginFooter,
-			$this->orientation
-		);
+    /**
+     * Formats response HTML in PDF
+     *
+     * @param Response $response
+     */
+    protected function formatPdf($response)
+    {
+        $mpdf = new \Mpdf\Mpdf([
+            'mode' => $this->mode,
+            'format' => $this->format,
+            'default_font_size' => $this->defaultFontSize,
+            'default_font' => $this->defaultFont,
+            'margin_left' => $this->marginLeft,
+            'margin_right' => $this->marginRight,
+            'margin_top' => $this->marginTop,
+            'margin_bottom' => $this->marginBottom,
+            'margin_header' => $this->marginHeader,
+            'margin_footer' => $this->marginFooter,
+            'orientation' => $this->orientation,
+            ]
+        );
 
-		foreach ($this->options as $key => $option) {
-			$mpdf->$key = $option;
-		}
+        foreach ($this->options as $key => $option) {
+            $mpdf->$key = $option;
+        }
 
-		if ($this->beforeRender instanceof \Closure) {
-			call_user_func($this->beforeRender, $mpdf, $response->data);
-		}
+        if ($this->beforeRender instanceof \Closure) {
+            call_user_func($this->beforeRender, $mpdf, $response->data);
+        }
 
-		$mpdf->WriteHTML($response->data);
-		return $mpdf->Output('', 'S');
-	}
+        $mpdf->WriteHTML($response->data);
+        return $mpdf->Output('', 'S');
+    }
 }

@@ -1,32 +1,40 @@
 {
-	"name": "robregonm/yii2-pdf",
-	"description": "Yii 2 PDF Response Formatter",
-	"keywords": ["yii", "yii2", "pdf", "response", "formatter", "reports", "documents"],
-	"type": "yii2-extension",
-	"license": "BSD-3-Clause",
-	"support": {
-		"issues": "https://github.com/robregonm/yii2-pdf/issues?state=open",
-		"forum": "http://www.yiiframework.com/forum/",
-		"wiki": "http://www.yiiframework.com/wiki/",
-		"source": "https://github.com/robregonm/yii2-pdf"
-	},
-	"authors": [
-		{
-			"name": "robregonm",
-			"email": "robregonm@gmail.com",
-			"homepage": "http://obregon.co",
-			"role": "Author"
-		}
-	],
-	"require": {
-		"php": ">=5.4.0",
-		"yiisoft/yii2": "*",
-		"yiisoft/yii2-composer": "*",
-		"mpdf/mpdf": ">=5.7.0 <7.0.0"
-	},
-	"autoload": {
-		"psr-4": {
-			"robregonm\\pdf\\": ""
-		}
-	}
+  "name": "robregonm/yii2-pdf",
+  "description": "Yii 2 PDF Response Formatter",
+  "keywords": [
+    "yii",
+    "yii2",
+    "pdf",
+    "response",
+    "formatter",
+    "reports",
+    "documents"
+  ],
+  "type": "yii2-extension",
+  "license": "BSD-3-Clause",
+  "support": {
+    "issues": "https://github.com/robregonm/yii2-pdf/issues?state=open",
+    "forum": "http://www.yiiframework.com/forum/",
+    "wiki": "http://www.yiiframework.com/wiki/",
+    "source": "https://github.com/robregonm/yii2-pdf"
+  },
+  "authors": [
+    {
+      "name": "robregonm",
+      "email": "robregonm@gmail.com",
+      "homepage": "http://obregon.co",
+      "role": "Author"
+    }
+  ],
+  "require": {
+    "php": "^5.6 || ~7.0.0 || ~7.1.0 || ~7.2.0 || ~7.3.0",
+    "yiisoft/yii2": "*",
+    "yiisoft/yii2-composer": "*",
+    "mpdf/mpdf": "^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "robregonm\\pdf\\": ""
+    }
+  }
 }
